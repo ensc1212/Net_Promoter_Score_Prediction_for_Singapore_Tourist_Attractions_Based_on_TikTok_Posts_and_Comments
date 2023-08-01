@@ -12,5 +12,5 @@ spacy
 textblob
 joblib
 keras
-tensorflow
+tensorflow==2.13.0
 string
