@@ -12,5 +12,4 @@ spacy
 textblob
 joblib
 keras
-
-string
+tensorflow
