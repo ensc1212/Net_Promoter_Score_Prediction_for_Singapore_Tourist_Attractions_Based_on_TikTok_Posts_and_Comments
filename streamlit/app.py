@@ -486,7 +486,7 @@ st.set_page_config(
 # top navigation bar
 selected = option_menu(
     menu_title = None,
-    options = ['NPS Predictor', 'Popularity Predictor'],
+    options = ['NPS Predictor'], # 'Popularity Predictor'
     icons = ['search-heart','star-half'],
     default_index = 0, # which tab it should open when page is first loaded
     orientation = 'horizontal',
