@@ -11,3 +11,6 @@ seaborn
 spacy
 textblob
 joblib
+keras
+tensorflow
+string
