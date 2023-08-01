@@ -1,7 +1,6 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-import pickle
 import pandas as pd
 import numpy as np
 import ast
@@ -9,7 +8,6 @@ import re
 
 import plotly.express as px
 import plotly.graph_objs as go
-import altair as alt
 import seaborn as sns
 import matplotlib.pyplot as plt
 
@@ -839,7 +837,7 @@ if selected == 'NPS Predictor':
         # plot top mentioned entities grouped by type of tourist attraction 
         st.write(f'NPS of Top {top_n_entities} Occuring Tourist Attractions - Grouped by Type')
         
-        top_entities_type_fig = px.bar(unique_entities_count_df.head(top_n_entities).groupby('interest_1').mean().reset_index(),
+        top_entities_type_fig = px.bar(unique_entities_count_df.filter(['interest_1','count','total_count','nps']).head(top_n_entities).groupby('interest_1').mean().reset_index(),
                                        x='nps',y='interest_1',
                                        color='interest_1',
                                        color_discrete_map={'transport':'#F8A19F',
