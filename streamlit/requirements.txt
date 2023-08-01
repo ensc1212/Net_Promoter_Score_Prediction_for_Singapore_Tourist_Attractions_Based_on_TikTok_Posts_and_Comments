@@ -9,5 +9,4 @@ nltk
 scikit-learn
 seaborn
 spacy
-textblob
-
+joblib
