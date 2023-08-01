@@ -621,8 +621,21 @@ if selected == 'NPS Predictor':
     st.write('Sample vs Uploaded Data 1: Side-by-side analysis of Sample Data and Uploaded Data 1.')
     st.write('Sample vs Uploaded Data 2: Side-by-side analysis of Sample Data and Uploaded Data 2.')
     st.write('Uploaded Data 1 vs Uploaded Data 2: Side-by-side analysis of Uploaded Data 1 and Uploaded Data 2.')
+    st.write('')
+
     # 3 different tabs to show 3 different views
     tab_1,tab_2,tab_3,tab_4,tab_5,tab_6 = st.tabs(['Sample Data', 'Uploaded Data 1','Uploaded Data 2','Sample vs Uploaded Data 1','Sample vs Uploaded Data 2','Uploaded Data 1 vs Uploaded Data 2'])
+
+    # change font size of the tabs
+    css = '''
+    <style>
+        .stTabs [data-baseweb="tab-list"] button [data-testid="stMarkdownContainer"] p {
+        font-size:1.05rem;
+        }
+    </style>
+    '''
+
+    st.markdown(css, unsafe_allow_html=True)
     
     with tab_1:
         # START PLOTTING ANALYSIS
