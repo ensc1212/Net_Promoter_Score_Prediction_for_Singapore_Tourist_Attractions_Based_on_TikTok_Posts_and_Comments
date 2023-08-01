@@ -8,3 +8,6 @@ regex
 nltk
 scikit-learn
 seaborn
+spacy
+textblob
+
