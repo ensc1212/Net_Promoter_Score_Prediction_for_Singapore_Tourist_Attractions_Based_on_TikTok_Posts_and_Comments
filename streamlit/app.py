@@ -861,7 +861,8 @@ if selected == 'NPS Predictor':
             height=300,
             yaxis_title='Type of Tourist Attraction',
             legend_title_text='Type of Tourist Attraction',
-                yaxis={'categoryorder': 'total ascending'})
+                yaxis={'categoryorder': 'total ascending'},
+            showlegend=False)
         st.plotly_chart(top_entities_type_fig,use_container_width=True)
 
 
@@ -1111,7 +1112,8 @@ if selected == 'NPS Predictor':
                 height=300,
                 yaxis_title='Type of Tourist Attraction',
                 legend_title_text='Type of Tourist Attraction',
-                    yaxis={'categoryorder': 'total ascending'})
+                    yaxis={'categoryorder': 'total ascending'},
+            showlegend=False)
             st.plotly_chart(top_entities_type_fig_tab2,use_container_width=True)
 
 
@@ -1361,7 +1363,8 @@ if selected == 'NPS Predictor':
                 height=300,
                 yaxis_title='Type of Tourist Attraction',
                 legend_title_text='Type of Tourist Attraction',
-                    yaxis={'categoryorder': 'total ascending'})
+                    yaxis={'categoryorder': 'total ascending'},
+            showlegend=False)
             st.plotly_chart(top_entities_type_fig_tab3,use_container_width=True)
 
 
@@ -1611,7 +1614,8 @@ if selected == 'NPS Predictor':
                     height=300,
                     yaxis_title='Type of Tourist Attraction',
                     legend_title_text='Type of Tourist Attraction',
-                        yaxis={'categoryorder': 'total ascending'})
+                        yaxis={'categoryorder': 'total ascending'},
+            showlegend=False)
                 st.plotly_chart(top_entities_type_fig_col_1_tab4,use_container_width=True)
 
                 
@@ -1853,7 +1857,8 @@ if selected == 'NPS Predictor':
                     height=300,
                     yaxis_title='Type of Tourist Attraction',
                     legend_title_text='Type of Tourist Attraction',
-                        yaxis={'categoryorder': 'total ascending'})
+                        yaxis={'categoryorder': 'total ascending'},
+            showlegend=False)
                 st.plotly_chart(top_entities_type_fig_col_2_tab4,use_container_width=True)
 
 
@@ -2103,7 +2108,8 @@ if selected == 'NPS Predictor':
                     height=300,
                     yaxis_title='Type of Tourist Attraction',
                     legend_title_text='Type of Tourist Attraction',
-                        yaxis={'categoryorder': 'total ascending'})
+                        yaxis={'categoryorder': 'total ascending'},
+            showlegend=False)
                 st.plotly_chart(top_entities_type_fig_col_1_tab5,use_container_width=True)
 
                 
@@ -2345,7 +2351,8 @@ if selected == 'NPS Predictor':
                     height=300,
                     yaxis_title='Type of Tourist Attraction',
                     legend_title_text='Type of Tourist Attraction',
-                        yaxis={'categoryorder': 'total ascending'})
+                        yaxis={'categoryorder': 'total ascending'},
+            showlegend=False)
                 st.plotly_chart(top_entities_type_fig_col_2_tab5,use_container_width=True)
 
 
@@ -2598,7 +2605,8 @@ if selected == 'NPS Predictor':
                     height=300,
                     yaxis_title='Type of Tourist Attraction',
                     legend_title_text='Type of Tourist Attraction',
-                        yaxis={'categoryorder': 'total ascending'})
+                        yaxis={'categoryorder': 'total ascending'},
+            showlegend=False)
                 st.plotly_chart(top_entities_type_fig_col_1_tab6,use_container_width=True)
 
                 
@@ -2840,5 +2848,6 @@ if selected == 'NPS Predictor':
                     height=300,
                     yaxis_title='Type of Tourist Attraction',
                     legend_title_text='Type of Tourist Attraction',
-                        yaxis={'categoryorder': 'total ascending'})
+                        yaxis={'categoryorder': 'total ascending'},
+            showlegend=False)
                 st.plotly_chart(top_entities_type_fig_col_2_tab6,use_container_width=True)
