@@ -1087,7 +1087,7 @@ if selected == 'NPS Predictor':
             # plot top mentioned entities grouped by type of tourist attraction 
             st.write(f'NPS of Top {top_n_entities_tab2} Occuring Tourist Attractions - Grouped by Type')
             
-            top_entities_type_fig_tab2 = px.bar(data_1_mod_unique_entities_count_df.head(top_n_entities_tab2).groupby('interest_1').mean().reset_index(),
+            top_entities_type_fig_tab2 = px.bar(data_1_mod_unique_entities_count_df.filter(['interest_1','count','total_count','nps']).head(top_n_entities_tab2).groupby('interest_1').mean().reset_index(),
                                                 x='nps',y='interest_1',
                                                 color='interest_1',
                                        color_discrete_map={'transport':'#F8A19F',
@@ -1337,7 +1337,7 @@ if selected == 'NPS Predictor':
             # plot top mentioned entities grouped by type of tourist attraction 
             st.write(f'NPS of Top {top_n_entities_tab3} Occuring Tourist Attractions - Grouped by Type')
             
-            top_entities_type_fig_tab3 = px.bar(data_2_mod_unique_entities_count_df.head(top_n_entities_tab3).groupby('interest_1').mean().reset_index(),
+            top_entities_type_fig_tab3 = px.bar(data_2_mod_unique_entities_count_df.filter(['interest_1','count','total_count','nps']).head(top_n_entities_tab3).groupby('interest_1').mean().reset_index(),
                                                 x='nps',y='interest_1',
                                                 color='interest_1',
                                        color_discrete_map={'transport':'#F8A19F',
@@ -1587,7 +1587,7 @@ if selected == 'NPS Predictor':
                 # plot top mentioned entities grouped by type of tourist attraction 
                 st.write(f'NPS of Top {top_n_entities_col_1_tab4} Occuring Tourist Attractions - Grouped by Type')
                 
-                top_entities_type_fig_col_1_tab4 = px.bar(unique_entities_count_df.head(top_n_entities_col_1_tab4).groupby('interest_1').mean().reset_index(),
+                top_entities_type_fig_col_1_tab4 = px.bar(unique_entities_count_df.filter(['interest_1','count','total_count','nps']).head(top_n_entities_col_1_tab4).groupby('interest_1').mean().reset_index(),
                                                     x='nps',y='interest_1',
                                                     color='interest_1',
                                        color_discrete_map={'transport':'#F8A19F',
@@ -1829,7 +1829,7 @@ if selected == 'NPS Predictor':
                 # plot top mentioned entities grouped by type of tourist attraction 
                 st.write(f'NPS of Top {top_n_entities_col_2_tab4} Occuring Tourist Attractions - Grouped by Type')
                 
-                top_entities_type_fig_col_2_tab4 = px.bar(data_1_mod_unique_entities_count_df.head(top_n_entities_col_2_tab4).groupby('interest_1').mean().reset_index(),
+                top_entities_type_fig_col_2_tab4 = px.bar(data_1_mod_unique_entities_count_df.filter(['interest_1','count','total_count','nps']).head(top_n_entities_col_2_tab4).groupby('interest_1').mean().reset_index(),
                                                     x='nps',y='interest_1',
                                                     color='interest_1',
                                        color_discrete_map={'transport':'#F8A19F',
@@ -2079,7 +2079,7 @@ if selected == 'NPS Predictor':
                 # plot top mentioned entities grouped by type of tourist attraction 
                 st.write(f'NPS of Top {top_n_entities_col_1_tab5} Occuring Tourist Attractions - Grouped by Type')
                 
-                top_entities_type_fig_col_1_tab5 = px.bar(unique_entities_count_df.head(top_n_entities_col_1_tab5).groupby('interest_1').mean().reset_index(),
+                top_entities_type_fig_col_1_tab5 = px.bar(unique_entities_count_df.filter(['interest_1','count','total_count','nps']).head(top_n_entities_col_1_tab5).groupby('interest_1').mean().reset_index(),
                                                     x='nps',y='interest_1',
                                                     color='interest_1',
                                        color_discrete_map={'transport':'#F8A19F',
@@ -2321,7 +2321,7 @@ if selected == 'NPS Predictor':
                 # plot top mentioned entities grouped by type of tourist attraction 
                 st.write(f'NPS of Top {top_n_entities_col_2_tab5} Occuring Tourist Attractions - Grouped by Type')
                 
-                top_entities_type_fig_col_2_tab5 = px.bar(data_2_mod_unique_entities_count_df.head(top_n_entities_col_2_tab5).groupby('interest_1').mean().reset_index(),
+                top_entities_type_fig_col_2_tab5 = px.bar(data_2_mod_unique_entities_count_df.filter(['interest_1','count','total_count','nps']).head(top_n_entities_col_2_tab5).groupby('interest_1').mean().reset_index(),
                                                     x='nps',y='interest_1',
                                                     color='interest_1',
                                            color_discrete_map={'transport':'#F8A19F',
@@ -2574,7 +2574,7 @@ if selected == 'NPS Predictor':
                 # plot top mentioned entities grouped by type of tourist attraction 
                 st.write(f'NPS of Top {top_n_entities_col_1_tab6} Occuring Tourist Attractions - Grouped by Type')
                 
-                top_entities_type_fig_col_1_tab6 = px.bar(data_1_mod_unique_entities_count_df.head(top_n_entities_col_1_tab6).groupby('interest_1').mean().reset_index(),
+                top_entities_type_fig_col_1_tab6 = px.bar(data_1_mod_unique_entities_count_df.filter(['interest_1','count','total_count','nps']).head(top_n_entities_col_1_tab6).groupby('interest_1').mean().reset_index(),
                                                     x='nps',y='interest_1',
                                                     color='interest_1',
                                        color_discrete_map={'transport':'#F8A19F',
@@ -2816,7 +2816,7 @@ if selected == 'NPS Predictor':
                 # plot top mentioned entities grouped by type of tourist attraction 
                 st.write(f'NPS of Top {top_n_entities_col_2_tab6} Occuring Tourist Attractions - Grouped by Type')
                 
-                top_entities_type_fig_col_2_tab6 = px.bar(data_2_mod_unique_entities_count_df.head(top_n_entities_col_2_tab6).groupby('interest_1').mean().reset_index(),
+                top_entities_type_fig_col_2_tab6 = px.bar(data_2_mod_unique_entities_count_df.filter(['interest_1','count','total_count','nps']).head(top_n_entities_col_2_tab6).groupby('interest_1').mean().reset_index(),
                                                     x='nps',y='interest_1',
                                                     color='interest_1',
                                            color_discrete_map={'transport':'#F8A19F',
