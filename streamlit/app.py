@@ -552,6 +552,9 @@ if selected == 'NPS Predictor':
             # create new dataframe for NPS
             # generate a list of all entities mentioned
             data_1_mod_unique_entities_count_df = create_nps_dataframe_without_ast_conversion(data_1_mod_df,sg_entities_patterns_df)
+            # convert to csv and save it so it can be downloaded later
+            data_1_mod_unique_entities_count_csv = data_1_mod_unique_entities_count_df.to_csv(index=False).encode('utf-8')
+
 
             # Create 2 new dataframes that contain positive and negative sentiment words and the corresponding count
             data_1_mod_pos_sentiment_words_df = create_sentiment_words_df(data_1_mod_unique_entities_count_df,'pos_sentiment_words')
@@ -603,6 +606,8 @@ if selected == 'NPS Predictor':
             # create new dataframe for NPS
             # generate a list of all entities mentioned
             data_2_mod_unique_entities_count_df = create_nps_dataframe_without_ast_conversion(data_2_mod_df,sg_entities_patterns_df)
+            # convert to csv and save it so it can be downloaded later
+            data_2_mod_unique_entities_count_csv = data_2_mod_unique_entities_count_df.to_csv(index=False).encode('utf-8')
 
             # Create 2 new dataframes that contain positive and negative sentiment words and the corresponding count
             data_2_mod_pos_sentiment_words_df = create_sentiment_words_df(data_2_mod_unique_entities_count_df,'pos_sentiment_words')
@@ -1129,6 +1134,18 @@ if selected == 'NPS Predictor':
             showlegend=False)
             st.plotly_chart(top_entities_type_fig_tab2,use_container_width=True)
 
+            # add a download button for users to download predicted nps as csv
+            st.subheader('Download NPS Prediction for Uploaded Data 1')
+            st.write('To view the full list of NPS prediction per tourist attraction (entity) found in Uploaded Data 1,  click on the download button below.')
+            st.write('The .csv file also includes: promoter count, detractor count, total count, positive and negative sentiment words linked to each entity, type of tourist attraction and whether it is indoor or outdoors.')
+            st.download_button(
+               "Download Predicted NPS",
+               data_1_mod_unique_entities_count_csv,
+               "uploaded_data_1_prediction.csv",
+               "text/csv",
+               key='tab2_download_uploaded_data_1_prediction'
+            )
+
 
 
 
@@ -1379,6 +1396,18 @@ if selected == 'NPS Predictor':
                     yaxis={'categoryorder': 'total ascending'},
             showlegend=False)
             st.plotly_chart(top_entities_type_fig_tab3,use_container_width=True)
+
+            # add a download button for users to download predicted nps as csv
+            st.subheader('Download NPS Prediction for Uploaded Data 2')
+            st.write('To view the full list of NPS prediction per tourist attraction (entity) found in Uploaded Data 2,  click on the download button below.')
+            st.write('The .csv file also includes: promoter count, detractor count, total count, positive and negative sentiment words linked to each entity, type of tourist attraction and whether it is indoor or outdoors.')
+            st.download_button(
+               "Download Predicted NPS",
+               data_2_mod_unique_entities_count_csv,
+               file_name="uploaded_data_2_prediction.csv",
+               mime="text/csv",
+               key='tab3_download_uploaded_data_2_prediction'
+            )
 
 
 
@@ -1873,6 +1902,19 @@ if selected == 'NPS Predictor':
                         yaxis={'categoryorder': 'total ascending'},
             showlegend=False)
                 st.plotly_chart(top_entities_type_fig_col_2_tab4,use_container_width=True)
+                # add a download button for users to download predicted nps as csv
+                st.subheader('Download NPS Prediction for Uploaded Data 1')
+                st.write('To view the full list of NPS prediction per tourist attraction (entity) found in Uploaded Data 1,  click on the download button below.')
+                st.write('The .csv file also includes: promoter count, detractor count, total count, positive and negative sentiment words linked to each entity, type of tourist attraction and whether it is indoor or outdoors.')
+                st.download_button(
+                   "Download Predicted NPS",
+                   data_1_mod_unique_entities_count_csv,
+                   file_name="uploaded_data_1_prediction.csv",
+                   mime="text/csv",
+                   key='col2_tab4_download_uploaded_data_1_prediction'
+                )
+
+                
 
 
 
@@ -2125,6 +2167,9 @@ if selected == 'NPS Predictor':
             showlegend=False)
                 st.plotly_chart(top_entities_type_fig_col_1_tab5,use_container_width=True)
 
+
+            
+
                 
         
             with col_2_tab5:
@@ -2367,6 +2412,20 @@ if selected == 'NPS Predictor':
                         yaxis={'categoryorder': 'total ascending'},
             showlegend=False)
                 st.plotly_chart(top_entities_type_fig_col_2_tab5,use_container_width=True)
+                # add a download button for users to download predicted nps as csv
+                st.subheader('Download NPS Prediction for Uploaded Data 2')
+                st.write('To view the full list of NPS prediction per tourist attraction (entity) found in Uploaded Data 2,  click on the download button below.')
+                st.write('The .csv file also includes: promoter count, detractor count, total count, positive and negative sentiment words linked to each entity, type of tourist attraction and whether it is indoor or outdoors.')
+                st.download_button(
+                   "Download Predicted NPS",
+                   data_2_mod_unique_entities_count_csv,
+                   file_name="uploaded_data_2_prediction.csv",
+                   mime="text/csv",
+                   key='col2_tab5_download_uploaded_data_2_prediction'
+                )
+
+
+                
 
 
 
@@ -2621,6 +2680,18 @@ if selected == 'NPS Predictor':
                         yaxis={'categoryorder': 'total ascending'},
             showlegend=False)
                 st.plotly_chart(top_entities_type_fig_col_1_tab6,use_container_width=True)
+                
+                # add a download button for users to download predicted nps as csv
+                st.subheader('Download NPS Prediction for Uploaded Data 1')
+                st.write('To view the full list of NPS prediction per tourist attraction (entity) found in Uploaded Data 1,  click on the download button below.')
+                st.write('The .csv file also includes: promoter count, detractor count, total count, positive and negative sentiment words linked to each entity, type of tourist attraction and whether it is indoor or outdoors.')
+                st.download_button(
+                   "Download Predicted NPS",
+                   data_1_mod_unique_entities_count_csv,
+                   file_name="uploaded_data_1_prediction.csv",
+                   mime="text/csv",
+                   key='col1_tab6_download_uploaded_data_1_prediction'
+                )
 
                 
         
@@ -2864,3 +2935,15 @@ if selected == 'NPS Predictor':
                         yaxis={'categoryorder': 'total ascending'},
             showlegend=False)
                 st.plotly_chart(top_entities_type_fig_col_2_tab6,use_container_width=True)
+
+                # add a download button for users to download predicted nps as csv
+                st.subheader('Download NPS Prediction for Uploaded Data 2')
+                st.write('To view the full list of NPS prediction per tourist attraction (entity) found in Uploaded Data 2,  click on the download button below.')
+                st.write('The .csv file also includes: promoter count, detractor count, total count, positive and negative sentiment words linked to each entity, type of tourist attraction and whether it is indoor or outdoors.')
+                st.download_button(
+                   "Download Predicted NPS",
+                   data_2_mod_unique_entities_count_csv,
+                   file_name="uploaded_data_2_prediction.csv",
+                   mime="text/csv",
+                   key='col2_tab6_download_uploaded_data_2_prediction'
+                )
