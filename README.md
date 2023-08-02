@@ -1,75 +1,138 @@
-# Capstone Project
+# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) Capstone Project
 
-Your Capstone project is the culmination of your time at GA. You will be tasked with developing an interesting question, collecting the data required to model that data, developing the strongest model (or models) for prediction, and communicating those findings to other data scientists and non-technical individuals. This introductory document lays out the five consitutent portions of the project and their due dates.
+### Problem Statement
 
-Not sure where to start? Need some inspiration? Check out some past student capstone projects at the bottom of this README: [CLICK HERE](#example-projects)
+As a data analyst at the Singapore Tourism Board, my primary responsibility is to collect and label data, conduct an extensive analysis and create a sophisticated machine learning model aimed at predicting the Net Promoter Score (NPS) of diverse tourist attractions in Singapore. This predictive model will utilize TikTok posts and comments pertaining to these attractions as its basis.
 
-## Your Deliverables
+The overarching goal is to equip the Singapore Tourism Board with valuable insights and a comprehensive understanding of trends and sentiments expressed on this nascent social media platform. By leveraging these insights, the board can make well-informed, data-driven decisions, develop targeted strategies, and assist relevant stakeholders in the tourism industry (e.g. Tourist Attractions Management, Travel Agencies and Tour Operators) to improve their services and offerings. Ultimately, these efforts will enhance the overall appeal of Singapore as a premier global tourist destination.
 
-- A well-made predictive model using either structured or unstructured machine learning techniques (or other technique approved in advanced by the global instructors), as well as clean, well-written code.
-- A technical report aimed at fellow data scientists that explains your process and findings
-- A public presentation of your findings aimed at laypeople.
+### Objectives
 
-### **Capstone, Part 1: Topic Proposals**
+1. Collect and label training data to train the predictive model.
 
-In Part 1, get started by choosing **three potential topics and problems**, describing your goals & criteria for success, potential audience(s), and identifying 1-2 potential datasets. In the field of data science, good projects are practical. Your capstone project should be manageable and affect a real world audience. This might be a domain you are familiar with, a particular interest you have, something that affects a community you are involved in, or an area that relates to a field you wish to work in.
+2. Analyze and interpret sentiment trends concerning different tourist attractions based on TikTok posts and comments.
 
-One of the best ways to test ideas quickly is to share them with others. A good data scientist has to be comfortable discussing ideas and presenting to audiences. That's why for Part 1 of your Capstone project, you'll be preparing a lightning talk in addition to your initial notebook outlining the scope of your project.  You will present your candidate topics in a slide deck, and should be prepared to answer questions and defend your data selection(s). Presentations should take no more than 3-5 minutes.
+3. Develop a robust machine learning model that accurately predicts the NPS of Singapore's tourist attractions.
 
-**The ultimate choice of topic for your capstone project is yours!** However, this is research and development work. Sometimes projects that look easy can be difficult and vice versa. It never hurts to have a second (or third) option available.
+---
 
-- **Goal**: Prepare a 3-5 minute lightning talk that covers three potential topics, including potential sources of data, goals, metrics and audience.
-- **Due**: See `course-info`
+### Data Dictionary
 
-### **Capstone, Part 2: Problem Statement + Data**
+`video_info_audio_caption_cleaned_df`
 
-For Part 2, provide a clear statement of the problem that you have chosen and an overview of your approach to solving that problem. Summarize your objectives, goals & success metrics, and any risks & assumptions. Outline your proposed methods and models. **Your data should be in hand by this point in the process!**
+|Feature|Type|Description|
+|:---|:---:|:---|
+|<b>id</b>|*object*|Id of the TikTok post|
+|<b>url</b>|*object*|URL address of the TikTok post|
+|<b>account_name</b>|*object*|Account name of the TikTok post uploader|
+|<b>following_count</b>| *int64*|Following count of the TikTok post uploader|
+|<b>follower_count</b>|*object*|Follower count of the TikTok post uploader|
+|<b>total_like_count</b>|*object*|Total like count of the TikTok post uploader|
+|<b>date</b>|*object*|Date on which the TikTok post was uploaded|
+|<b>href</b>|*object*|The href needed to access the link to the TikTok post uploader's account page|
+|<b>handle</b>|*object*|TikTok post uploader's account handle|
+|<b>description</b>|*object*|Description of the TikTok post|
+|<b>hashtag</b>|*object*|Hashtags of the TikTok post|
+|<b>like_count</b>|*object*|Like count of the TikTok post|
+|<b>bookmark_count</b>|*object*|Bookmark count of the TikTok post|
+|<b>share_count</b>|*object*|Share count of the TikTok post|
+|<b>comment_count</b>|*object*|Comment count of the TikTok post|
+|<b>final_text</b>|*object*|Text from speech-to-text, unless empty, and if empty, it will be text from caption-to-text |
 
-**Again, your data should be in hand by this point the process!**
+<br>
 
-- **Goal**: Gather your data and describe your proposed approach to your local instructor.
-- **Due**: See `course-info`
+`comments_df`
 
-### **Capstone, Part 3: Progress Update + Preliminary Findings**
+|Feature|Type|Description|
+|:---|:---:|:---|
+|<b>id</b>|*object*|Id of the post with indication of being a comment instead of post|
+|<b>url</b>|*object*|URL address of the TikTok post|
+|<b>handle</b>|*object*|TikTok post uploader's account handle|
+|<b>comment_count</b>| *object*|Comment count of the TikTok post|
+|<b>comment</b>|*object*|Comment text|
 
-In Part 3, you'll create a progress update of your work in order to get feedback along the way. Describe your approach, initial EDA, initial results, and any setbacks or lessons learned so far. Your update should include updated visual and statistical analysis of your data. You’ll also meet with your local instructional team to get feedback on your results so far!
+<br>
 
-- **Goal**: Discuss progress and setbacks, include visual and statistical analysis, review with teaching team.
-- **Due**: See `course-info`
+`train_df`
 
-### **Capstone, Part 4: Progress Update + Technical Analysis**
+|Feature|Type|Description|
+|:---|:---:|:---|
+|<b>post_comment</b>|*object*|Whether this sentence is from post or comment|
+|<b>id</b>|*object*|Id of the TikTok post with indication of whether the sentence is from a post or comment|
+|<b>sentence</b>|*object*|Sentence text|
+|<b>entity</b>| *object*|Entities found in the sentence|
+|<b>pos_sentiment_words</b>|*object*|Words found in the sentence with positive sentiment|
+|<b>neg_sentiment_words</b>|*object*|Words found in the sentence with negative sentiment|
+|<b>textblob</b>|*float64*|Sentiment score ranging from -1 to 1|
+|<b>sentiment</b>|*float64*|Adjusted sentiment score ranging from 0 to 10|
 
-By now, you're ready to apply your modeling skills to make machine learning predictions. Your goal for Part 4 is to develop a technical document (in the form of Jupyter notebook) that can be shared among your peers.
+<br>
 
-Document your research and analysis including a summary, an explanation of your modeling approach as well as the strengths and weaknesses of any variables in the process. You should provide insight into your analysis, using best practices like cross validation or applicable prediction metrics.
+`sg_entities_patterns_df`
+Note: this dataset was manually prepared and not scrapped.
 
-- **Goal**: Detailed update and code with a summary of your statistical analysis, model, and evaluation metrics.
-- **Due**: See `course-info`
+|Feature|Type|Description|
+|:---|:---:|:---|
+|<b>label</b>|*object*|Label of the tourist attraction (entity)|
+|<b>pattern</b>|*object*|Pattern to recognize as tourist attraction (entity)|
+|<b>sublocation</b>|*object*|Actual name of the tourist attraction (entity)|
+|<b>interest_1</b>| *object*|Main category in which the tourist attraction falls under|
+|<b>interest_2</b>|*object*|Secondary category in which the tourist attraction falls under|
+|<b>indoor_outdoor</b>|*object*|Whether the tourist attraction is indoors or outdoors|
 
-### **Capstone, Part 5: Presentation + Recommendations**
+<br>
 
-Whether during an interview or as part of a job, you will frequently have to present your findings to business partners and other interested parties - many of whom won't know anything about data science! That's why for Part 5, you'll create a presentation of your previous findings with a non-technical audience in mind.
+---
 
-You should already have the analytical work complete, so now it's time to clean up and clarify your findings. Come up with a detailed slide deck or interactive demo that explains your data, visualizes your model, describes your approach, articulates strengths and weaknesses, and presents specific recommendations. Be prepared to explain and defend your model to an inquisitive audience!
+### Business Recommendations
 
-- **Goal**: Detailed presentation deck that relates your data, model, and findings to a non-technical audience.
-- **Due**: See `course-info`
+Contextualising the insights for the various stakeholders in the Singapore tourism industry, here are a few business recommendations to consider:
 
-<a name="example-projects"></a>
-### Example Projects
+1. Costliness and the overall impression of poor value for money is a major concern for tourist attractions and shopping in Singapore. Stakeholders should consider if the high price points are a nett positive or negative revenue driver for their portfolio, both in the short and long term.
 
-Below are some great capstone projects submitted by past DSI students!
+2. In terms of social media marketing, efficacy increases greatly with eye-catching one-of-a-kind features (e.g. SIA suites) or easy-to-mention awards. These help to drive virality, reach and engagement.
 
-* [Kenya Chauche, DSI-10](https://github.com/KenyaChauche/sonnet-generation) built a natural language generation program trained on Shakespeare's sonnets
-* [Molly Baird, DSI-11](https://github.com/mollycbaird/ComputerVisionSET) wanted to computerize the game of SET, and succeeded admirably
-* [Daniel Johnston, DSI-2](https://github.com/djkjohnston/ML_from_scratch_GA_DSI_Capstone) built several key machine learning algos from scratch in python, comparing their performance to the scikit-learn implementations.  
-* [Alex Schultz, DSI-3](https://github.com/fullquartpress/DSI-Capstone) predicts spot coffee (commodity coffee bean) price changes from sentiment analysis of an industry trade publication.  
-* [Brice Walker, DSI-3](https://github.com/bricewalker/Hey-Jetson) wanted to play with his Jetson GPU and built voice transcription _from scratch_.  
-* [Caitlin Streamer, DSI-4](https://github.com/c-streams/Pneumonia) worked on a Kaggle dataset to predict pneumonia from chest X-rays.  
-* [Brian Osgood, DSI-04](https://github.com/osgoodbl/PyFilter) built a bot that crawls twitter and identifies whether an image tagged 'lamborghini' is actually a lamborghini.  
-* [Frank Turner, DSI-04](https://github.com/frankturnerv/Fashioning_Models_from_Fashion_Models) uses image recognition to identify the colors used in a fashion season's palette.  
-* [DSI-06, team](https://github.com/balak4/Optimizing-Evac-Routes) This is actually the DSI-6 group project. It's here because it's really, really impressive.  
-* [Amy Taylor, DSI-06](https://github.com/amytaylor330/CNN_for_Dance_Music_Classification_repost) wanted to quantify the difference between types of dance music.  
-* [Veronica Giannotta, DSI-06](https://github.com/vgiannotta/Emotional-Impacts-of-Viral-Content) delved into the dark side of the internet and evaluated the emotional sentiment of social media content that goes viral.
-* [Derek Steffan, DSI-07](https://github.com/dsteffan/twitch_chat_analysis) automates the process of creating twitch highlight reels using sentiment analysis, markov chains, and Bayesian analysis.  
-* [Sebastian Alvis, League of Legends](https://github.com/salvis2/SpringboardAlvis/tree/master/capstone_project_1) Not a GA capstone, but a very compelling case for applying data science to your interests to come up with a good capstone.
+3. Singapore excels in areas where tourists have comparative experiences (e.g. Singapore Airport, Singapore Airlines), where the Singapore experience is superior (but not necessarily unique or defining) to others. These are not a sufficient draw to increase tourism numbers or revenue. To further improve on Singapore’s tourism prospects, other areas (e.g. quality of food, value of shopping, cultural experience) need improvement.
+
+The machine learning model will prove invaluable in providing assistance and valuable insights to different stakeholders in the tourism industry:
+
+- Tourist Attractions Management: Track the progress of their NPS. By leveraging on NPS, they would be able to understand and optimize their customer service and deliverables to increase footfall and revenue. They can also use this tool to monitor competitors’ performance.
+
+- Singapore Tourism Board: Track NPS of different attractions to assess overall visitor satisfaction and target improvements in the tourism sector. NPS would also serve as an indicator of the attractiveness and potential success of a tourist attraction, influencing their subsequent investment decisions when building or supporting new tourist destinations.
+
+- Travel Agencies and Tour Operators: Track NPS of various attractions to design better travel packages and recommend attractions that align with the current trends
+
+- In addition, stakeholders can track the efficacy of specific campaigns or initiatives by analyzing the pre- and post-frequency of mentions of the particular entity. This enables them to discern the impact of their initiatives and make data-driven decisions to optimize promotional strategies and engagement with tourists.
+
+---
+
+### Conclusion
+
+Upon revisiting the problem statement, we are reminded of our three primary objectives:
+
+1) <b>Objective 1</b>
+- Our first objective was to collect and label training data to train the predictive model.
+- The successful collection and labeling of training data have facilitated the development of a robust machine learning model capable of accurately predicting the NPS for various tourist attractions in Singapore.
+
+2) <b>Objective 2</b>
+- Our second objective was to analyze and interpret sentiment trends concerning different tourist attractions based on TikTok posts and comments. 
+- We found 3 main points:
+    - Costliness and poor value for money concern tourist attractions and shopping in Singapore. 
+    - Eye-catching features and easy-to-mention awards enhance social media marketing. 
+    - Singapore excels in areas with comparative advantages, but improving food, shopping, and cultural experiences is essential for further enhancing tourism prospects.
+
+
+3) <b>Objective 3</b>
+- Our third objective was to develop a robust machine learning model that accurately predicts the NPS of Singapore's tourist attractions.
+- With a test MSE score of 0.0012, test RMSE score of 0.034 and test R^2 score of 0.91, the final model demonstrates a high level of accuracy in predicting the NPS for diverse tourist attractions in Singapore. This proficient model can serve as a valuable tool for various stakeholders in presenting actionable insights to the management of their respective companies.
+
+---
+
+### Next Steps
+
+1) <b>Broaden Dataset</b>  
+- this would make the model more robust and representative (e.g. more posts, other socials like Instagram, FaceBook posts, etc.)
+2) <b>Introduce Source Identification</b> 
+- this allows for more granular deep-dives and stronger root cause analysis (e.g. nationality/gender/age of creator, social platform drawn from, post or comment, etc.)
+3) <b>Explore NLP Tools</b>
+- research other sentiment analysis python libraries to refine labelling of scores, Dependency Parsing to extract descriptive words associated to a specific entity
